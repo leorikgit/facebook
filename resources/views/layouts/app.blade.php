@@ -19,9 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-600">
+<body class="bg-gray-200 font-sans antialiased text-gray-800">
     <div id="app">
-        <main class="py-4">
+        <main class="h-screen">
             @yield('content')
         </main>
     </div>
