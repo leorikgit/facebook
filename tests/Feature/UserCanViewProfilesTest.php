@@ -22,10 +22,18 @@ class UserCanViewProfilesTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'data' =>[
-                    'type' => 'users',
-                    'user_id' => $user->id,
-                    'attributes' =>[
-                        'name' => $user->name
+                    [
+                        'data' => [
+                            'type' => 'users',
+                            'user_id' => $user->id,
+                            'attributes' =>[
+                                'body' => $posts->last()->body,
+                                'posted_at' => [
+                                    'name' => $user->name,
+                                ]
+
+                            ]
+                        ]
                     ]
                 ],
                 'links' => [

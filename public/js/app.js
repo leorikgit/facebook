@@ -2161,6 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Post */ "./resources/js/components/Post.vue");
 //
 //
 //
@@ -2170,6 +2171,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Show",
   mounted: function mounted() {
@@ -2182,12 +2197,24 @@ __webpack_require__.r(__webpack_exports__);
     })["finally"](function () {
       _this.loading = false;
     });
+    axios.get('/api/users/' + this.$route.params.userId + '/posts').then(function (res) {
+      _this.posts = res.data;
+    })["catch"](function (error) {
+      console.log('unable to load user');
+    })["finally"](function () {
+      _this.postLoading = false;
+    });
   },
   data: function data() {
     return {
       user: null,
-      loading: true
+      loading: true,
+      posts: [],
+      postLoading: true
     };
+  },
+  components: {
+    Post: _components_Post__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -38415,23 +38442,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "flex flex-col items-center mb-8" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.postLoading
+        ? _c("p", [_vm._v("Loading posts...")])
+        : _vm._l(_vm.posts.data, function(post) {
+            return _c("post", { key: post.data.post_id, attrs: { post: post } })
+          })
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "w-100 h-64 overflow-y-hidden" }, [
-        _c("img", {
-          staticClass: "object-cover",
-          attrs: {
-            src:
-              "https://image.shutterstock.com/z/stock-photo-colorful-hot-air-balloons-flying-over-mountain-at-dot-inthanon-in-chiang-mai-thailand-1033306540.jpg",
-            alt: "User bacground image"
-          }
-        })
+    return _c("div", { staticClass: "relative" }, [
+      _c("div", { staticClass: "position-absolute" }, [
+        _c("div", { staticClass: "w-100 h-64 overflow-y-hidden z-10" }, [
+          _c("img", {
+            staticClass: "object-cover",
+            attrs: {
+              src:
+                "https://image.shutterstock.com/z/stock-photo-colorful-hot-air-balloons-flying-over-mountain-at-dot-inthanon-in-chiang-mai-thailand-1033306540.jpg",
+              alt: "User bacground image"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex items-center absolute bottom-0 left-0 -mb-8 ml-12 z-20"
+          },
+          [
+            _c("div", { staticClass: "w-32" }, [
+              _c("img", {
+                staticClass:
+                  "w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg",
+                attrs: {
+                  src:
+                    "https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png",
+                  alt: "user avatar"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "ml-4 text-gray-100 text-2xl" }, [
+              _vm._v("name")
+            ])
+          ]
+        )
       ])
     ])
   }

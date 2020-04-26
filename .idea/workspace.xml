@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/NewsFeed.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/Users/Show.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_125334_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_125334_create_posts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NewsFeed.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Users/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Users/Show.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/RetrivePostsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/RetrivePostsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/UserCanViewProfilesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UserCanViewProfilesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +188,7 @@
       <workItem from="1587321122798" duration="1982000" />
       <workItem from="1587384438013" duration="14080000" />
       <workItem from="1587662809544" duration="6379000" />
-      <workItem from="1587728788220" duration="40896000" />
+      <workItem from="1587728788220" duration="48145000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -240,7 +232,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587835155296</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="user profile">
+      <created>1587914462887</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587914462887</updated>
+    </task>
+    <task id="LOCAL-00008" summary="user profile">
+      <created>1587914549545</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587914549545</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +265,8 @@
     <MESSAGE value="testing posts (third step) resource collection" />
     <MESSAGE value="init commit" />
     <MESSAGE value="front stuff for app" />
-    <option name="LAST_COMMIT_MESSAGE" value="front stuff for app" />
+    <MESSAGE value="user profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="user profile" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -275,10 +282,14 @@
     </state>
     <state x="1035" y="249" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1587302574983" />
     <state x="1035" y="249" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587909459086" />
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1587835154971">
+    <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587916693485">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587835154971" />
+    <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587916693485" />
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1587914549274">
+      <screen x="45" y="27" width="2515" height="948" />
+    </state>
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587914549274" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
