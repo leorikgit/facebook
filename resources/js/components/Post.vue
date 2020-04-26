@@ -6,16 +6,16 @@
                 <img src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" class="h-8 w-9 object-cover">
             </div>
             <div class="ml-2">
-                <div class="text-sm font-bold">Your name</div>
-                <div class="text-sm text-gray-600">Updated</div>
+                <div class="text-sm font-bold">{{post.data.attributes.posted_by.data.attributes.name}}</div>
+                <div class="text-sm text-gray-600">{{post.data.attributes.posted_at}}</div>
             </div>
         </div>
         <div class="mt-4">
-            <p>Not Fun At ALL</p>
+            <p>{{post.data.attributes.body}}</p>
         </div>
     </div>
-    <div class="w-full">
-        <img src="https://cdn.pixabay.com/photo/2012/08/27/14/19/evening-55067__340.png" class="w-full">
+    <div class="w-full" v-if="post.data.attributes.image">
+        <img :src="post.data.attributes.image" class="w-full">
     </div>
     <div class="flex justify-between px-4 text-gray-700 pt-2">
         <div class="flex">
@@ -42,7 +42,10 @@
 
 <script>
     export default {
-        name: "Post"
+        name: "Post",
+        props:[
+            'post',
+        ]
     }
 </script>
 
