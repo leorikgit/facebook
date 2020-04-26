@@ -2195,7 +2195,7 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log('unable to load user');
     })["finally"](function () {
-      _this.loading = false;
+      _this.userLoading = false;
     });
     axios.get('/api/users/' + this.$route.params.userId + '/posts').then(function (res) {
       _this.posts = res.data;
@@ -2208,7 +2208,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       user: null,
-      loading: true,
+      userLoading: true,
       posts: [],
       postLoading: true
     };
@@ -38446,7 +38446,26 @@ var render = function() {
     "div",
     { staticClass: "flex flex-col items-center mb-8" },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "relative" }, [
+        _c("div", { staticClass: "position-absolute" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex items-center absolute bottom-0 left-0 -mb-8 ml-12 z-20"
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("p", { staticClass: "ml-4 text-gray-100 text-2xl" }, [
+                _vm._v(_vm._s(_vm.user.data.attributes.name))
+              ])
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _vm.postLoading
         ? _c("p", [_vm._v("Loading posts...")])
@@ -38462,44 +38481,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "relative" }, [
-      _c("div", { staticClass: "position-absolute" }, [
-        _c("div", { staticClass: "w-100 h-64 overflow-y-hidden z-10" }, [
-          _c("img", {
-            staticClass: "object-cover",
-            attrs: {
-              src:
-                "https://image.shutterstock.com/z/stock-photo-colorful-hot-air-balloons-flying-over-mountain-at-dot-inthanon-in-chiang-mai-thailand-1033306540.jpg",
-              alt: "User bacground image"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex items-center absolute bottom-0 left-0 -mb-8 ml-12 z-20"
-          },
-          [
-            _c("div", { staticClass: "w-32" }, [
-              _c("img", {
-                staticClass:
-                  "w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg",
-                attrs: {
-                  src:
-                    "https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png",
-                  alt: "user avatar"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "ml-4 text-gray-100 text-2xl" }, [
-              _vm._v("name")
-            ])
-          ]
-        )
-      ])
+    return _c("div", { staticClass: "w-100 h-64 overflow-y-hidden z-10" }, [
+      _c("img", {
+        staticClass: "object-cover",
+        attrs: {
+          src:
+            "https://image.shutterstock.com/z/stock-photo-colorful-hot-air-balloons-flying-over-mountain-at-dot-inthanon-in-chiang-mai-thailand-1033306540.jpg",
+          alt: "User bacground image"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-32" }, [
+      _c("img", {
+        staticClass:
+          "w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg",
+        attrs: {
+          src:
+            "https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png",
+          alt: "user avatar"
+        }
+      })
     ])
   }
 ]

@@ -10,7 +10,7 @@
                      <div class="w-32">
                          <img class="w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg" src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="user avatar">
                      </div>
-                     <p class="ml-4 text-gray-100 text-2xl">name</p>
+                     <p class="ml-4 text-gray-100 text-2xl">{{user.data.attributes.name}}</p>
                  </div>
              </div>
          </div>
@@ -33,7 +33,7 @@
                 console.log('unable to load user');
             })
             .finally(()=>{
-                this.loading = false;
+                this.userLoading = false;
             });
 
             axios.get('/api/users/' +  this.$route.params.userId + '/posts')
@@ -50,7 +50,7 @@
         data: () => {
             return {
                 user: null,
-                loading: true,
+                userLoading: true,
                 posts: [],
                 postLoading: true
             }
