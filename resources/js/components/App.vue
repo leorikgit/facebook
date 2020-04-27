@@ -20,6 +20,9 @@
         components:{
             Sidebar,
            Nav
+        },
+        mounted() {
+            this.$store.dispatch('fetchAuthUser');
         }
     }
 </script>
