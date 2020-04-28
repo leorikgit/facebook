@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FriendRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FriendRequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/FriendsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/FriendsTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +188,7 @@
       <workItem from="1587384438013" duration="14080000" />
       <workItem from="1587662809544" duration="6379000" />
       <workItem from="1587728788220" duration="60287000" />
-      <workItem from="1588069902291" duration="9423000" />
+      <workItem from="1588069902291" duration="11209000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -275,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588022489251</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="friends">
+      <created>1588092110122</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588092110122</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +305,8 @@
     <MESSAGE value="user profile&#10;view all user posts&#10;fix" />
     <MESSAGE value="auth-user test" />
     <MESSAGE value="vuex  auth user" />
-    <option name="LAST_COMMIT_MESSAGE" value="vuex  auth user" />
+    <MESSAGE value="friends" />
+    <option name="LAST_COMMIT_MESSAGE" value="friends" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -319,10 +326,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587916693485" />
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588022487994">
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588092109548">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588022487994" />
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588092109548" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
