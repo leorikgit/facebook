@@ -11,7 +11,7 @@ mix.js('resources/js/app.js', 'public/js')
 mix.browserSync({
     // use existing Nginx virtual host
     proxy: {
-        target: '172.31.0.3'
+        target: 'webserver'
     },
     open: false,
     // Disable it because I use browsersync's default port
