@@ -27,4 +27,20 @@ class FriendRequestResponseController extends Controller
 
         return new friendResource($friend);
     }
+    public function destroy(){
+        $data = request()->validate([
+            'user_id' => 'required'
+        ]);
+       try {
+            $friendRequest = Friend::where('user_id', $data['user_id'])->where('friend_id', auth()->user()->id)
+                ->firstOrFail()->delete();
+        }catch (ModelNotFoundException $e) {
+
+            throw new FirendRequesNotFoundException();
+        }
+
+        return response()->json([
+
+        ], 204);
+    }
 }

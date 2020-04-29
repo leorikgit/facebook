@@ -212,4 +212,43 @@ class FriendsTest extends TestCase
                 ],
             ]);
     }
+    /** @test */
+    public function friend_request_can_be_ignored(){
+        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+        $anotherUser = factory(User::class)->create();
+
+        $this->post('/api/friend-request', ['friend_id' => $anotherUser->id])
+            ->assertStatus(200);
+
+        $response = $this->actingAs($anotherUser, 'api')
+            ->delete('/api/friend-request-response/delete', ['user_id' => $user->id, 'status' => 1])->assertStatus(204);
+
+        $firendReqest = Friend::first();
+        $this->assertNull($firendReqest);
+        $response->assertNoContent();
+    }
+
+    /** @test */
+    public function only_recipient_can_ignore_friend_request(){
+//        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+        $anotherUser = factory(User::class)->create();
+
+        $this->post('/api/friend-request', ['friend_id' => $anotherUser->id])
+            ->assertStatus(200);
+
+        $response = $this->actingAs( factory(User::class)->create(), 'api')
+            ->delete('/api/friend-request-response/delete', ['user_id' => $user->id, 'status' => 1])->assertStatus(404);
+        $firnedRequest = Friend::first();
+        $this->assertNull($firnedRequest->confimed_at);
+        $this->assertNull($firnedRequest->status);
+        $response->assertJson([
+            'errors'=>[
+                'code' => 404,
+                'title' => 'Friend Request Not Found',
+                'detail' => 'Unable to locate friend request with the given information.'
+            ]
+        ]);
+    }
 }
