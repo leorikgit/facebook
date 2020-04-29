@@ -82,7 +82,7 @@ class FriendsTest extends TestCase
         $this->assertNotNull($friendRequest->confirmed_at);
         $this->assertInstanceOf(Carbon::class, $friendRequest->confirmed_at);
         $this->assertEquals(1, $friendRequest->status);
-//        $this->assertEquals(now()->startOfSecond() , $friendRequest->confirmed_at);
+
         $response->assertJson([
             'data' => [
                 'type' => 'friends',
@@ -93,6 +93,43 @@ class FriendsTest extends TestCase
             ] ,
             'links' => [
                 'self' => url('/users/'.$anotherUser->id)
+            ]
+        ]);
+    }
+    /** @test */
+    public function only_valid_friend_request_can_be_accepted(){
+
+        $anotherUser = factory(User::class)->create();
+        $this->actingAs($anotherUser, 'api');
+        $response = $this->post('/api/friend-request-response', ['user_id' => 123, 'status' => 1])->assertStatus(404);
+
+        $friendRequest = Friend::first();
+        $this->assertNull($friendRequest);
+        $response->assertJson([
+            'errors'=>[
+                'code' => 404,
+                'title' => 'Friend Request Not Found',
+                'detail' => 'Unable to locate friend request with the given information.'
+            ]
+        ]);
+    }
+
+    /** @test */
+    public function only_recipient_can_accept_friend_request(){
+//        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+        $anotherUser = factory(User::class)->create();
+
+        $this->post('/api/friend-request', ['friend_id' => $anotherUser->id])
+            ->assertStatus(200);
+
+        $response = $this->actingAs( factory(User::class)->create(), 'api')
+            ->post('/api/friend-request-response', ['user_id' => $user->id, 'status' => 1])->assertStatus(404);
+        $response->assertJson([
+            'errors'=>[
+                'code' => 404,
+                'title' => 'Friend Request Not Found',
+                'detail' => 'Unable to locate friend request with the given information.'
             ]
         ]);
     }
