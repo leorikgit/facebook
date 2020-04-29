@@ -133,4 +133,15 @@ class FriendsTest extends TestCase
             ]
         ]);
     }
+    /** @test */
+    public function valid_friend_id_for_friend_request(){
+//        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+
+        $response = $this->post('/api/friend-request', ['friend_id' => '']);
+
+        $responseString = json_decode($response->getContent(), true);
+
+        $this->assertArrayHasKey('friend_id', $responseString['errors']['meta']);
+    }
 }
