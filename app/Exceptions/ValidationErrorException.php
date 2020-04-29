@@ -21,7 +21,7 @@ class ValidationErrorException extends Exception
                'detail' => 'Request is malforemd or missing fields.',
                'meta' => json_decode($this->getMessage()),
            ]
-       ], 404);
+       ], 422);
    ;
     }
 }
