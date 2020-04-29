@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FriendRequestResponseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Friend.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Friend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FriendRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FriendRequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Friend.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Friend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_28_115339_create_friends_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_28_115339_create_friends_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/FriendsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/FriendsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/UserCanViewProfilesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UserCanViewProfilesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,13 +146,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1aknuKsdPNzGvYIEw0GCn68sAWl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -189,6 +199,7 @@
       <workItem from="1587662809544" duration="6379000" />
       <workItem from="1587728788220" duration="60287000" />
       <workItem from="1588069902291" duration="11209000" />
+      <workItem from="1588143859778" duration="7211000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -290,6 +301,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/laradock" />
       <path value="$PROJECT_DIR$/workspace" />
