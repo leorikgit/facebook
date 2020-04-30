@@ -4,7 +4,7 @@
         <div class="flex overflow-y-hidden flex-1">
             <Sidebar></Sidebar>
            <div class="w-2/3 overflow-x-hidden">
-               <router-view></router-view>
+               <router-view :key="$route.fullPath"></router-view>
 
            </div>
         </div>

@@ -13,29 +13,26 @@
                      <p class="ml-4 text-gray-100 text-2xl" v-if="! loading">{{user.data.attributes.name}}</p>
                  </div>
              </div>
+             <div class="flex items-center absolute bottom-0 right-0 mb-4 mr-12 z-20">
+                 <button class="py-1 px-3 bg-gray-400 rounded">Add Friend</button>
+             </div>
          </div>
         <p v-if="postLoading">Loading posts...</p>
         <post v-else v-for="post in posts.data" :post="post" :key="post.data.post_id"></post>
+
+        <p class="mt-4 text-gray-700" v-if="! postLoading && posts.data.length < 1">No posts found. Get started...</p>
 
     </div>
 </template>
 
 <script>
     import Post from "../../components/Post";
+    import {mapGetters} from 'vuex';
     export default {
         name: "Show",
         mounted() {
-            axios.get('/api/users/' +  this.$route.params.userId)
-            .then(res=>{
-                this.user = res.data;
-            })
-            .catch(error=>{
-                console.log('unable to load user');
-            })
-            .finally(()=>{
-                this.loading = false;
-            });
-
+            console.log(this.$router.params);
+            this.$store.dispatch('fetchUser', this.$route.params.userId)
             axios.get('/api/users/' +  this.$route.params.userId + '/posts')
                 .then(res=>{
                     this.posts = res.data;
@@ -49,14 +46,17 @@
         },
         data: () => {
             return {
-                user: null,
-                loading: true,
                 posts: [],
                 postLoading: true
             }
         },
         components:{
             Post
+        },
+        computed:{
+            ...mapGetters({
+                user: 'User'
+            })
         }
 
     }
