@@ -14,8 +14,11 @@
                  </div>
              </div>
              <div class="flex items-center absolute bottom-0 right-0 mb-4 mr-12 z-20">
-                 <button class="py-1 px-3 bg-gray-400 rounded " v-if="friendButton" @click="$store.dispatch('sendFriendRequest', $route.params.userId)">{{friendButton}}</button>
+                 <button class="py-1 px-3 bg-gray-400 rounded " v-if="friendButton && friendButton !== 'Accept'" @click="$store.dispatch('sendFriendRequest', $route.params.userId)">{{friendButton}}</button>
+                 <button class=" mr-1 py-1 px-3 bg-blue-500 rounded " v-if="friendButton && friendButton == 'Accept'" @click="$store.dispatch('acceptFriendRequest', $route.params.userId)">Accept</button>
+                 <button class="py-1 px-3 bg-gray-400 rounded " v-if="friendButton && friendButton == 'Accept'" @click="$store.dispatch('ignoreFriendRequest', $route.params.userId)">Ignore</button>
              </div>
+
          </div>
         <p v-if="postLoading">Loading posts...</p>
         <post v-else v-for="post in posts.data" :post="post" :key="post.data.post_id"></post>
@@ -54,9 +57,10 @@
         },
         computed:{
             ...mapGetters({
-                user: 'User',
+                user: 'user',
                 friendButton: 'friendButton',
-                profileStatus : 'profileStatus'
+                profileStatus : 'profileStatus',
+                authUser: 'authUser'
             })
         }
 

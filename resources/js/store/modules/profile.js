@@ -1,19 +1,22 @@
+import User from "./user";
+
 const state = {
     user: null,
     userStatus: null,
-    friendButton: null
 }
 const getters = {
-    User: state => {
+    user: state => {
         return state.user;
     },
     friendButton: (state, getters, rootState) => {
-        if(getters.User.data.attributes.friendship === null){
+        if(getters.user.data.attributes.friendship === null){
             return 'Add Friend';
-        }
-        if (getters.User.data.attributes.friendship.data.attributes.confirmed_at === null) {
+        }else if (getters.user.data.attributes.friendship.data.attributes.confirmed_at === null && getters.user.data.attributes.friendship.data.attributes.friend_id !== rootState.User.user.data.user_id){
             return 'Pending';
+        }else if(getters.user.data.attributes.friendship.data.attributes.confirmed_at !== null){
+            return '';
         }
+        return "Accept";
     },
     profileStatus: state => {
         return state.userStatus;
@@ -32,11 +35,28 @@ const actions = {
         })
     },
     sendFriendRequest({commit, state}, friendId){
-        commit('setButtonText', 'Loading...');
         axios.post('/api/friend-request/', {'friend_id': friendId})
             .then(res=>{
 
                 commit('setUserFriendship', res.data);
+            }).catch(error => {
+
+        });
+    },
+    acceptFriendRequest({commit, state}, userId){
+        axios.post('/api/friend-request-response/', {'user_id': userId, 'status': 1})
+            .then(res=>{
+
+                commit('setUserFriendship', res.data);
+            }).catch(error => {
+
+        });
+    },
+    ignoreFriendRequest({commit, state}, userId){
+        axios.delete('/api/friend-request-response/delete', { data: {'user_id': userId}})
+            .then(res=>{
+
+                commit('setUserFriendship', null);
             }).catch(error => {
 
         });
@@ -50,9 +70,6 @@ const mutations = {
     },
     setUserStatus(state, status){
         state.userStatus = status;
-    },
-    setButtonText(state, text){
-        state.friendButton = text;
     },
     setUserFriendship(state, friendship){
         state.user.data.attributes.friendship = friendship;

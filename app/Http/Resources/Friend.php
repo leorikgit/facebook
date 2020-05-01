@@ -20,7 +20,9 @@ class Friend extends JsonResource
                 'type' => 'friends',
                 'friends_id' => $this->id,
                 'attributes' => [
-                    'confirmed_at' => optional($this->confirmed_at)->diffForHumans()
+                    'confirmed_at' => optional($this->confirmed_at)->diffForHumans(),
+                    'friend_id' => $this->friend_id,
+                    'user_id' => $this->user_id,
                 ]
             ],
             'links' => [
