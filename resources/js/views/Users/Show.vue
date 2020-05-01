@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center mb-8">
+    <div class="flex flex-col items-center mb-8" v-if="status.userStatus === 'success' && user">
 
          <div class="relative">
              <div class="position-absolute">
@@ -10,7 +10,7 @@
                      <div class="w-32">
                          <img class="w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg" src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="user avatar">
                      </div>
-                     <p class="ml-4 text-gray-100 text-2xl" v-if="profileStatus === 'Success'">{{user.data.attributes.name}}</p>
+                     <p class="ml-4 text-gray-100 text-2xl" v-if="status.user === 'success'">{{user.data.attributes.name}}</p>
                  </div>
              </div>
              <div class="flex items-center absolute bottom-0 right-0 mb-4 mr-12 z-20">
@@ -20,10 +20,11 @@
              </div>
 
          </div>
-        <p v-if="postLoading">Loading posts...</p>
+        <div v-if="status.postStatus === 'loading'">Loading posts...</div>
+        <div class="mt-4 text-gray-700" v-else-if="posts.length < 1">No posts found. Get started...</div>
         <post v-else v-for="post in posts.data" :post="post" :key="post.data.post_id"></post>
 
-        <p class="mt-4 text-gray-700" v-if="! postLoading && posts.data.length < 1">No posts found. Get started...</p>
+
 
     </div>
 </template>
@@ -35,21 +36,12 @@
         name: "Show",
         mounted() {
             this.$store.dispatch('fetchUser', this.$route.params.userId)
-            axios.get('/api/users/' +  this.$route.params.userId + '/posts')
-                .then(res=>{
-                    this.posts = res.data;
-                })
-                .catch(error=>{
-                    console.log('unable to load user');
-                })
-                .finally(()=>{
-                    this.postLoading = false;
-                });
+            this.$store.dispatch('fetchPost', this.$route.params.userId)
+
         },
         data: () => {
             return {
-                posts: [],
-                postLoading: true
+
             }
         },
         components:{
@@ -59,8 +51,9 @@
             ...mapGetters({
                 user: 'user',
                 friendButton: 'friendButton',
-                profileStatus : 'profileStatus',
-                authUser: 'authUser'
+                status : 'status',
+                authUser: 'authUser',
+                posts: 'post',
             })
         }
 

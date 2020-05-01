@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Friend.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Friend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Users/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Users/Show.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/FriendsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/FriendsTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +196,7 @@
       <workItem from="1588069902291" duration="11209000" />
       <workItem from="1588143859778" duration="23207000" />
       <workItem from="1588262750258" duration="7282000" />
-      <workItem from="1588320435553" duration="12310000" />
+      <workItem from="1588320435553" duration="17803000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -348,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588329639284</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="friends completed">
+      <created>1588360148020</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1588360148020</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +386,8 @@
     <MESSAGE value="frontEnd&#10;refactor fetchuser -&gt; vuex&#10;add friend button&#10;fix reload page for another user" />
     <MESSAGE value="nesty friendbutton text" />
     <MESSAGE value="refactor button state&amp;action into getters&#10;update user relationship after friend request" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor button state&amp;action into getters&#10;update user relationship after friend request" />
+    <MESSAGE value="friends completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="friends completed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -402,12 +407,12 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587916693485" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588329638937">
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588360147624">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588265113197" />
     <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588092109548" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588329638937" />
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588360147624" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />
     </state>

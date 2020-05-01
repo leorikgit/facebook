@@ -3,10 +3,15 @@ import User from "./user";
 const state = {
     user: null,
     userStatus: null,
+    post: null,
+    postStatus: null
 }
 const getters = {
     user: state => {
         return state.user;
+    },
+    post: state => {
+        return state.post;
     },
     friendButton: (state, getters, rootState) => {
         if(getters.user.data.attributes.friendship === null){
@@ -18,15 +23,15 @@ const getters = {
         }
         return "Accept";
     },
-    profileStatus: state => {
-        return state.userStatus;
+    status: state => {
+        return {userStatus: state.userStatus , postStatus: state.postStatus}
     },
 }
 const actions = {
     fetchUser({commit, dispatch}, userId){
         axios.get('/api/users/' + userId)
             .then(res=>{
-                commit('setUserStatus', 'Success');
+                commit('setUserStatus', 'success');
                 commit('setUser', res.data);
             }).catch(error => {
             commit('setUserStatus', 'Error');
@@ -34,10 +39,20 @@ const actions = {
 
         })
     },
+
+    fetchPost({commit, dispatch}, userId){
+        commit('setPostsStatus', 'loading');
+        axios.get('/api/users/' +  userId + '/posts')
+            .then(res=>{
+                commit('setPostsStatus', 'success');
+                commit('setPosts', res.data);
+            }).catch(error => {
+            commit('setPostsStatus', 'Error');
+        })
+    },
     sendFriendRequest({commit, state}, friendId){
         axios.post('/api/friend-request/', {'friend_id': friendId})
             .then(res=>{
-
                 commit('setUserFriendship', res.data);
             }).catch(error => {
 
@@ -46,7 +61,6 @@ const actions = {
     acceptFriendRequest({commit, state}, userId){
         axios.post('/api/friend-request-response/', {'user_id': userId, 'status': 1})
             .then(res=>{
-
                 commit('setUserFriendship', res.data);
             }).catch(error => {
 
@@ -68,8 +82,14 @@ const mutations = {
     setUser(state, user){
         state.user = user;
     },
+    setPosts(state, posts){
+        state.post = posts;
+    },
     setUserStatus(state, status){
         state.userStatus = status;
+    },
+    setPostsStatus(state, status){
+        state.postStatus = status;
     },
     setUserFriendship(state, friendship){
         state.user.data.attributes.friendship = friendship;
