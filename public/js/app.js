@@ -55280,10 +55280,16 @@ var getters = {
   User: function User(state) {
     return state.user;
   },
-  friendButton: function friendButton(state) {
-    return state.friendButton;
+  friendButton: function friendButton(state, getters, rootState) {
+    if (getters.User.data.attributes.friendship === null) {
+      return 'Add Friend';
+    }
+
+    if (getters.User.data.attributes.friendship.data.attributes.confirmed_at === null) {
+      return 'Pending';
+    }
   },
-  profileStatus: function profileStatus(tate) {
+  profileStatus: function profileStatus(state) {
     return state.userStatus;
   }
 };
@@ -55294,7 +55300,6 @@ var actions = {
     axios.get('/api/users/' + userId).then(function (res) {
       commit('setUserStatus', 'Success');
       commit('setUser', res.data);
-      dispatch('setFriendButtons');
     })["catch"](function (error) {
       commit('setUserStatus', 'Error');
     })["finally"](function () {});
@@ -55306,22 +55311,8 @@ var actions = {
     axios.post('/api/friend-request/', {
       'friend_id': friendId
     }).then(function (res) {
-      commit('setButtonText', 'Pending');
-    })["catch"](function (error) {
-      commit('setButtonText', 'Add Friend');
-    });
-  },
-  setFriendButtons: function setFriendButtons(_ref3) {
-    var commit = _ref3.commit,
-        getters = _ref3.getters;
-
-    if (getters.User.data.attributes.friendship === null) {
-      commit('setButtonText', 'Add Friend');
-    }
-
-    if (getters.User.data.attributes.friendship.data.attributes.confirmed_at === null) {
-      commit('setButtonText', 'Pending');
-    }
+      commit('setUserFriendship', res.data);
+    })["catch"](function (error) {});
   }
 };
 var mutations = {
@@ -55333,6 +55324,9 @@ var mutations = {
   },
   setButtonText: function setButtonText(state, text) {
     state.friendButton = text;
+  },
+  setUserFriendship: function setUserFriendship(state, friendship) {
+    state.user.data.attributes.friendship = friendship;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
