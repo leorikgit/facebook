@@ -10,11 +10,11 @@
                      <div class="w-32">
                          <img class="w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg" src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="user avatar">
                      </div>
-                     <p class="ml-4 text-gray-100 text-2xl" v-if="! loading">{{user.data.attributes.name}}</p>
+                     <p class="ml-4 text-gray-100 text-2xl" v-if="profileStatus === 'Success'">{{user.data.attributes.name}}</p>
                  </div>
              </div>
              <div class="flex items-center absolute bottom-0 right-0 mb-4 mr-12 z-20">
-                 <button class="py-1 px-3 bg-gray-400 rounded">Add Friend</button>
+                 <button class="py-1 px-3 bg-gray-400 rounded " v-if="friendButton" @click="$store.dispatch('sendFriendRequest', $route.params.userId)">{{friendButton}}</button>
              </div>
          </div>
         <p v-if="postLoading">Loading posts...</p>
@@ -31,7 +31,6 @@
     export default {
         name: "Show",
         mounted() {
-            console.log(this.$router.params);
             this.$store.dispatch('fetchUser', this.$route.params.userId)
             axios.get('/api/users/' +  this.$route.params.userId + '/posts')
                 .then(res=>{
@@ -55,7 +54,9 @@
         },
         computed:{
             ...mapGetters({
-                user: 'User'
+                user: 'User',
+                friendButton: 'friendButton',
+                profileStatus : 'profileStatus'
             })
         }
 

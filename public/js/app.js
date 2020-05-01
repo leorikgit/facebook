@@ -2225,7 +2225,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
-    console.log(this.$router.params);
     this.$store.dispatch('fetchUser', this.$route.params.userId);
     axios.get('/api/users/' + this.$route.params.userId + '/posts').then(function (res) {
       _this.posts = res.data;
@@ -2245,7 +2244,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Post: _components_Post__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    user: 'User'
+    user: 'User',
+    friendButton: 'friendButton',
+    profileStatus: 'profileStatus'
   }))
 });
 
@@ -38490,7 +38491,7 @@ var render = function() {
             [
               _vm._m(1),
               _vm._v(" "),
-              !_vm.loading
+              _vm.profileStatus === "Success"
                 ? _c("p", { staticClass: "ml-4 text-gray-100 text-2xl" }, [
                     _vm._v(_vm._s(_vm.user.data.attributes.name))
                   ])
@@ -38499,7 +38500,32 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(2)
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex items-center absolute bottom-0 right-0 mb-4 mr-12 z-20"
+          },
+          [
+            _vm.friendButton
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "py-1 px-3 bg-gray-400 rounded ",
+                    on: {
+                      click: function($event) {
+                        return _vm.$store.dispatch(
+                          "sendFriendRequest",
+                          _vm.$route.params.userId
+                        )
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.friendButton))]
+                )
+              : _vm._e()
+          ]
+        )
       ]),
       _vm._v(" "),
       _vm.postLoading
@@ -38548,23 +38574,6 @@ var staticRenderFns = [
         }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex items-center absolute bottom-0 right-0 mb-4 mr-12 z-20"
-      },
-      [
-        _c("button", { staticClass: "py-1 px-3 bg-gray-400 rounded" }, [
-          _vm._v("Add Friend")
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -55264,24 +55273,55 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 __webpack_require__.r(__webpack_exports__);
 var state = {
   user: null,
-  userStatus: null
+  userStatus: null,
+  friendButton: null
 };
 var getters = {
   User: function User(state) {
     return state.user;
+  },
+  friendButton: function friendButton(state) {
+    return state.friendButton;
+  },
+  profileStatus: function profileStatus(tate) {
+    return state.userStatus;
   }
 };
 var actions = {
   fetchUser: function fetchUser(_ref, userId) {
     var commit = _ref.commit,
-        state = _ref.state;
-    commit('setUserStatus', 'Loading');
+        dispatch = _ref.dispatch;
     axios.get('/api/users/' + userId).then(function (res) {
       commit('setUserStatus', 'Success');
       commit('setUser', res.data);
+      dispatch('setFriendButtons');
     })["catch"](function (error) {
       commit('setUserStatus', 'Error');
     })["finally"](function () {});
+  },
+  sendFriendRequest: function sendFriendRequest(_ref2, friendId) {
+    var commit = _ref2.commit,
+        state = _ref2.state;
+    commit('setButtonText', 'Loading...');
+    axios.post('/api/friend-request/', {
+      'friend_id': friendId
+    }).then(function (res) {
+      commit('setButtonText', 'Pending');
+    })["catch"](function (error) {
+      commit('setButtonText', 'Add Friend');
+    });
+  },
+  setFriendButtons: function setFriendButtons(_ref3) {
+    var commit = _ref3.commit,
+        getters = _ref3.getters;
+
+    if (getters.User.data.attributes.friendship === null) {
+      commit('setButtonText', 'Add Friend');
+    }
+
+    if (getters.User.data.attributes.friendship.data.attributes.confirmed_at === null) {
+      commit('setButtonText', 'Pending');
+    }
   }
 };
 var mutations = {
@@ -55290,6 +55330,9 @@ var mutations = {
   },
   setUserStatus: function setUserStatus(state, status) {
     state.userStatus = status;
+  },
+  setButtonText: function setButtonText(state, text) {
+    state.friendButton = text;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -55355,6 +55398,9 @@ var state = {
 };
 var getters = {
   authUser: function authUser(state) {
+    return state.user;
+  },
+  userStatus: function userStatus(state) {
     return state.user;
   }
 };

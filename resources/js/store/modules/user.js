@@ -5,6 +5,9 @@ const state = {
 const getters = {
     authUser: state => {
         return state.user;
+    },
+    userStatus: state => {
+        return state.user;
     }
 }
 const actions= {
