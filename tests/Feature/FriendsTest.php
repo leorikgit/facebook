@@ -43,6 +43,25 @@ class FriendsTest extends TestCase
         ]);
 
     }
+    /** @test */
+    public function user_can_send_firend_request_only_once(){
+        $this->withoutExceptionHandling();
+
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+
+        $anotherUser =  factory(User::class)->create();
+
+        $response = $this->post('/api/friend-request', [
+            'friend_id' => $anotherUser->id
+        ])->assertStatus(200);;
+        $response = $this->post('/api/friend-request', [
+            'friend_id' => $anotherUser->id
+        ])->assertStatus(200);;
+
+        $friendResponse = Friend::all();
+        $this->assertCount(1, $friendResponse);
+
+    }
 
     /** @test */
     public function only_existing_users_can_be_friends(){

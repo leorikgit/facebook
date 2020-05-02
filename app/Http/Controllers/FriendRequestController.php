@@ -28,7 +28,7 @@ class FriendRequestController extends Controller
             throw new UserModelNotFoundException();
         }
         // auth()->user()->friends()->attach($friend);
-        $friend->friends()->attach(auth()->user());
+        $friend->friends()->syncWithoutDetaching(auth()->user());
 
         return new friendResource(Friend::where('friend_id', $data['friend_id'])->where('user_id', auth()->user()->id)->first());
     }
