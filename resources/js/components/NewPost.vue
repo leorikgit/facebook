@@ -6,8 +6,10 @@
                    <img src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" class="h-8 w-9 object-cover">
                </div>
            </div>
-           <div class="flex-1 px-4 ">
-               <input type="text" placeholder="Make a post" class="h-8  bg-gray-200 rounded-full pl-4 focus:outline-none text-sm w-full ">
+           <div class="flex-1 flex px-4">
+               <input v-model="postMessage" type="text" placeholder="Make a post" class="h-8  bg-gray-200 rounded-full pl-4 focus:outline-none text-sm w-full">
+
+            <button class="px-3 bg-gray-200 rounded-lg py-1 ml-2 py-1" @click="$store.dispatch('postMessage')">Post</button>
            </div>
            <div>
                <button class="w-12 h-12 flex item-center justify-center rounded-full bg-gray-200 flex">
@@ -23,7 +25,18 @@
 
 <script>
     export default {
-        name: "NewPost"
+        name: "NewPost",
+        computed: {
+            postMessage:{
+                get(){
+                    return this.$store.getters.postMessage;
+                },
+                set(postMessage){
+                    this.$store.commit('setPostMessage', postMessage)
+                }
+            }
+        }
+
     }
 </script>
 

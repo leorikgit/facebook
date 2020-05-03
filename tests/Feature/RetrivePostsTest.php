@@ -40,11 +40,11 @@ class RetrivePostsTest extends TestCase
                     [
                         'data' => [
                             'type' => 'posts',
-                            'post_id' => $posts->first()->id,
+                            'post_id' => $posts->last()->id,
                             'attributes' => [
-                                'body' => $posts->first()->body,
-                                'posted_at' => $posts->first()->created_at->diffForHumans(),
-                                'image' => $posts->first()->image
+                                'body' => $posts->last()->body,
+                                'posted_at' => $posts->last()->created_at->diffForHumans(),
+                                'image' => $posts->last()->image
 
                             ]
                         ]
@@ -52,11 +52,11 @@ class RetrivePostsTest extends TestCase
                    [
                        'data' => [
                            'type' => 'posts',
-                           'post_id' => $posts->last()->id,
+                           'post_id' => $posts->first()->id,
                            'attributes' => [
-                               'body' => $posts->last()->body,
-                               'posted_at' => $posts->last()->created_at->diffForHumans(),
-                               'image' => $posts->last()->image
+                               'body' => $posts->first()->body,
+                               'posted_at' => $posts->first()->created_at->diffForHumans(),
+                               'image' => $posts->first()->image
                            ]
                        ]
                    ]

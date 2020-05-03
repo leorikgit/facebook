@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Scopes/ReverseScope.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/posts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Friend.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Friend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/NewPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NewPost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/NewsFeed.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/NewsFeed.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/PostToTimelineTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/PostToTimelineTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/RetrivePostsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/RetrivePostsTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,13 +166,13 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/store/modules" />
       <recent name="$PROJECT_DIR$/resources/js/views" />
       <recent name="$PROJECT_DIR$/workspace" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -199,7 +202,7 @@
       <workItem from="1588069902291" duration="11209000" />
       <workItem from="1588143859778" duration="23207000" />
       <workItem from="1588262750258" duration="7282000" />
-      <workItem from="1588320435553" duration="26238000" />
+      <workItem from="1588320435553" duration="33602000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -369,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588435012829</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="neewsfeed completed&#10;added global scope for post desc always">
+      <created>1588452044138</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1588452044138</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +416,8 @@
     <MESSAGE value="friends completed" />
     <MESSAGE value="refactor posts into store&#10;fix vue warn" />
     <MESSAGE value="fixed&#10;backend&amp;frontend possibility to send another friend request&#10;button for send friend request for yourself" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed&#10;backend&amp;frontend possibility to send another friend request&#10;button for send friend request for yourself" />
+    <MESSAGE value="neewsfeed completed&#10;added global scope for post desc always" />
+    <option name="LAST_COMMIT_MESSAGE" value="neewsfeed completed&#10;added global scope for post desc always" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -430,12 +441,12 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587916693485" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588435012420">
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588452044015">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588265113197" />
     <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588092109548" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588435012420" />
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588452044015" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
@@ -456,6 +467,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state width="556" height="446" key="SwitcherDM/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588329372385" />
+    <state x="1035" y="308" width="524" height="384" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1588504910206">
+      <screen x="45" y="27" width="2515" height="948" />
+    </state>
+    <state x="1035" y="308" width="524" height="384" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588504910206" />
     <state x="145" y="125" width="2315" height="750" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1588271949868">
       <screen x="45" y="27" width="2515" height="948" />
     </state>

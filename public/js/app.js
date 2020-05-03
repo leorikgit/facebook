@@ -2051,8 +2051,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "NewPost"
+  name: "NewPost",
+  computed: {
+    postMessage: {
+      get: function get() {
+        return this.$store.getters.postMessage;
+      },
+      set: function set(postMessage) {
+        this.$store.commit('setPostMessage', postMessage);
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -2148,6 +2160,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_NewPost__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../js/components/NewPost */ "./resources/js/components/NewPost.vue");
 /* harmony import */ var _js_components_Post__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../js/components/Post */ "./resources/js/components/Post.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2156,6 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2165,22 +2185,15 @@ __webpack_require__.r(__webpack_exports__);
     NewPost: _js_components_NewPost__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {
-      posts: [],
-      loading: true
-    };
+    return {};
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/posts').then(function (res) {
-      _this.posts = res.data;
-      _this.loading = false;
-    })["catch"](function (err) {
-      console.log('unable to laod posts');
-      _this.loading = false;
-    });
-  }
+    this.$store.dispatch('fetchNewsPosts');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    newsStatus: 'newsStatus',
+    posts: 'newsPosts'
+  }))
 });
 
 /***/ }),
@@ -38146,7 +38159,43 @@ var render = function() {
     _c("div", { staticClass: "flex justify-between items-center" }, [
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "flex-1 flex px-4" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.postMessage,
+              expression: "postMessage"
+            }
+          ],
+          staticClass:
+            "h-8  bg-gray-200 rounded-full pl-4 focus:outline-none text-sm w-full",
+          attrs: { type: "text", placeholder: "Make a post" },
+          domProps: { value: _vm.postMessage },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.postMessage = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "px-3 bg-gray-200 rounded-lg py-1 ml-2 py-1",
+            on: {
+              click: function($event) {
+                return _vm.$store.dispatch("postMessage")
+              }
+            }
+          },
+          [_vm._v("Post")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", [
         _c(
@@ -38195,18 +38244,6 @@ var staticRenderFns = [
           }
         })
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex-1 px-4 " }, [
-      _c("input", {
-        staticClass:
-          "h-8  bg-gray-200 rounded-full pl-4 focus:outline-none text-sm w-full ",
-        attrs: { type: "text", placeholder: "Make a post" }
-      })
     ])
   }
 ]
@@ -38451,7 +38488,7 @@ var render = function() {
     [
       _c("NewPost"),
       _vm._v(" "),
-      _vm.loading
+      _vm.newsStatus.newsPostsStatus === "loading"
         ? _c("p", [_vm._v("Loading posts...")])
         : _vm._l(_vm.posts.data, function(post) {
             return _c("post", { key: post.data.post_id, attrs: { post: post } })
@@ -55293,6 +55330,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/user */ "./resources/js/store/modules/user.js");
 /* harmony import */ var _modules_title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/title */ "./resources/js/store/modules/title.js");
 /* harmony import */ var _modules_profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/profile */ "./resources/js/store/modules/profile.js");
+/* harmony import */ var _modules_posts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/posts */ "./resources/js/store/modules/posts.js");
+
 
 
 
@@ -55303,9 +55342,86 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   modules: {
     User: _modules_user__WEBPACK_IMPORTED_MODULE_2__["default"],
     Title: _modules_title__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Profile: _modules_profile__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Profile: _modules_profile__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Posts: _modules_posts__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/posts.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/posts.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  newsPosts: null,
+  newsPostsStatus: null,
+  postMessage: ''
+};
+var getters = {
+  newsPosts: function newsPosts(state) {
+    return state.newsPosts;
+  },
+  newsStatus: function newsStatus(state) {
+    return {
+      newsPostsStatus: state.newsPostsStatus
+    };
+  },
+  postMessage: function postMessage(state) {
+    return state.postMessage;
+  }
+};
+var actions = {
+  fetchNewsPosts: function fetchNewsPosts(_ref) {
+    var commit = _ref.commit,
+        state = _ref.state;
+    commit('setNewsPostsStatus', 'loading');
+    axios.get('/api/posts').then(function (res) {
+      commit('setNewsPosts', res.data);
+      commit('setNewsPostsStatus', 'success');
+    })["catch"](function (err) {
+      commit('setNewsPostsStatus', 'error');
+    });
+  },
+  postMessage: function postMessage(_ref2) {
+    var commit = _ref2.commit,
+        state = _ref2.state;
+    commit('setNewsPostsStatus', 'loading');
+    axios.post('/api/posts', {
+      body: state.postMessage
+    }).then(function (res) {
+      commit('pushNewPost', res.data);
+      commit('setPostMessage', ''); // commit('setNewsPostsStatus', 'success');
+    })["catch"](function (err) {
+      commit('setNewsPostsStatus', 'error');
+    });
+  }
+};
+var mutations = {
+  setNewsPostsStatus: function setNewsPostsStatus(state, status) {
+    state.newsPostsStatus = status;
+  },
+  setNewsPosts: function setNewsPosts(state, posts) {
+    state.newsPosts = posts;
+  },
+  setPostMessage: function setPostMessage(state, message) {
+    state.postMessage = message;
+  },
+  pushNewPost: function pushNewPost(state, newPost) {
+    state.newsPosts.data.unshift(newPost);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
 
 /***/ }),
 
