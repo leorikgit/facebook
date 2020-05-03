@@ -9,7 +9,10 @@
            <div class="flex-1 flex px-4">
                <input v-model="postMessage" type="text" placeholder="Make a post" class="h-8  bg-gray-200 rounded-full pl-4 focus:outline-none text-sm w-full">
 
-            <button class="px-3 bg-gray-200 rounded-lg py-1 ml-2 py-1" @click="$store.dispatch('postMessage')">Post</button>
+            <transition name="fade">
+                <button v-if='postMessage' class="px-3 bg-gray-200 rounded-lg py-1 ml-2 py-1" @click="$store.dispatch('postMessage')">Post</button>
+
+            </transition>
            </div>
            <div>
                <button class="w-12 h-12 flex item-center justify-center rounded-full bg-gray-200 flex">
@@ -24,22 +27,31 @@
 </template>
 
 <script>
+    import _ from 'lodash';
     export default {
+
         name: "NewPost",
         computed: {
             postMessage:{
                 get(){
                     return this.$store.getters.postMessage;
                 },
-                set(postMessage){
-                    this.$store.commit('setPostMessage', postMessage)
-                }
+                set: _.debounce(function(postMessage){
+                    this.$store.commit('setPostMessage', postMessage);
+                }, 300),
+
             }
         }
+
 
     }
 </script>
 
 <style scoped>
-
+    .fade-enter-active, .fade-leave-active{
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to{
+        opacity: 0;
+    }
 </style>

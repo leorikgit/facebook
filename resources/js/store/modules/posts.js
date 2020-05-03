@@ -35,7 +35,7 @@ const actions= {
             commit('pushNewPost', res.data);
 
             commit('setPostMessage', '');
-            // commit('setNewsPostsStatus', 'success');
+            commit('setNewsPostsStatus', 'success');
         }).catch(err=>{
             commit('setNewsPostsStatus', 'error');
         })
