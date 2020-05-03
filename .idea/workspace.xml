@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PostLikesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Like.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/LikeCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Like.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_05_03_191646_create_likes_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx/custom.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/custom.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/PostLikesTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/NewPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NewPost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,19 +163,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/store/modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/php" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="DEFAULT" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/php" />
+      <recent name="$PROJECT_DIR$/php/local.ini" />
       <recent name="$PROJECT_DIR$/resources/js/store/modules" />
       <recent name="$PROJECT_DIR$/resources/js/views" />
       <recent name="$PROJECT_DIR$/workspace" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/php" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -197,7 +207,7 @@
       <workItem from="1588069902291" duration="11209000" />
       <workItem from="1588143859778" duration="23207000" />
       <workItem from="1588262750258" duration="7282000" />
-      <workItem from="1588320435553" duration="34753000" />
+      <workItem from="1588320435553" duration="40732000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -381,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588505107980</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="transition + lodash debounce for input postMessage event">
+      <created>1588506504137</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1588506504137</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +412,6 @@
       <path value="$PROJECT_DIR$/laradock" />
       <path value="$PROJECT_DIR$/workspace" />
     </ignored-roots>
-    <MESSAGE value="testing posts (first step)" />
     <MESSAGE value="testing posts (second step) using laravel resources" />
     <MESSAGE value="testing posts (second step) using laravel resources&#10;++ unversioned files" />
     <MESSAGE value="testing posts (third step) resource collection" />
@@ -420,17 +436,19 @@
     <MESSAGE value="fixed&#10;backend&amp;frontend possibility to send another friend request&#10;button for send friend request for yourself" />
     <MESSAGE value="neewsfeed completed&#10;added global scope for post desc always" />
     <MESSAGE value="create new post" />
-    <option name="LAST_COMMIT_MESSAGE" value="create new post" />
+    <MESSAGE value="transition + lodash debounce for input postMessage event" />
+    <option name="LAST_COMMIT_MESSAGE" value="transition + lodash debounce for input postMessage event" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587888837580" />
-    <state x="1020" y="302" width="555" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587731642622">
+    <state x="1020" y="302" width="627" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588534518303">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1020" y="302" width="555" height="396" key="#com.intellij.fileTypes.FileTypeChooser/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587731642622" />
+    <state x="1020" y="302" width="627" height="396" key="#com.intellij.fileTypes.FileTypeChooser/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588534518303" />
     <state x="1091" y="181" width="412" height="638" key="#com.intellij.ide.util.MemberChooser" timestamp="1588451915931">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
@@ -444,12 +462,12 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587916693485" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588505107462">
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588506503753">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588265113197" />
     <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588092109548" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588505107462" />
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588506503753" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
