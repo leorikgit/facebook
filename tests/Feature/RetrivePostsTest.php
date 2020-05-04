@@ -18,7 +18,7 @@ class RetrivePostsTest extends TestCase
      * @return void
      */
     /** @test */
-    public function a_user_can_retive_posts()
+    public function a_user_can_retrieve_posts()
     {
         $this->withoutExceptionHandling();
         $this->actingAs($user = factory(User::class)->create(), 'api');
@@ -68,7 +68,7 @@ class RetrivePostsTest extends TestCase
             ]);
     }
     /** @test */
-    public function user_can_only_retive_his_posts(){
+    public function user_can_only_retrieve_his_posts(){
         $this->withoutExceptionHandling();
         $this->actingAs($user = factory(User::class)->create(), 'api');
 
@@ -83,4 +83,6 @@ class RetrivePostsTest extends TestCase
                 ]
             ]);
     }
+
+
 }
