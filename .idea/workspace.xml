@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/116b8eec-cdd7-400a-9885-558a6fb97b16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/116b8eec-cdd7-400a-9885-558a6fb97b16.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/LikeCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/LikeCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/PostLikesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/PostLikesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/RetrivePostsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/RetrivePostsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/NewsFeed.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/NewsFeed.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +201,7 @@
       <workItem from="1588143859778" duration="23207000" />
       <workItem from="1588262750258" duration="7282000" />
       <workItem from="1588320435553" duration="40732000" />
-      <workItem from="1588592324740" duration="8899000" />
+      <workItem from="1588592324740" duration="12408000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -394,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588506504137</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="user can retrive posts with likes">
+      <created>1588606688576</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1588606688576</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +413,6 @@
       <path value="$PROJECT_DIR$/laradock" />
       <path value="$PROJECT_DIR$/workspace" />
     </ignored-roots>
-    <MESSAGE value="testing posts (second step) using laravel resources" />
     <MESSAGE value="testing posts (second step) using laravel resources&#10;++ unversioned files" />
     <MESSAGE value="testing posts (third step) resource collection" />
     <MESSAGE value="init commit" />
@@ -433,7 +437,8 @@
     <MESSAGE value="neewsfeed completed&#10;added global scope for post desc always" />
     <MESSAGE value="create new post" />
     <MESSAGE value="transition + lodash debounce for input postMessage event" />
-    <option name="LAST_COMMIT_MESSAGE" value="transition + lodash debounce for input postMessage event" />
+    <MESSAGE value="user can retrive posts with likes" />
+    <option name="LAST_COMMIT_MESSAGE" value="user can retrive posts with likes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -458,10 +463,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1587916693485" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588506503753">
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588606688220">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588265113197" />
+    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588606688220" />
     <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588092109548" />
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588506503753" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
@@ -492,6 +497,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="145" y="125" width="2315" height="750" key="com.intellij.history.integration.ui.views.FileHistoryDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588271949868" />
+    <state x="993" y="210" width="618" height="580" key="find.popup" timestamp="1588609671358">
+      <screen x="45" y="27" width="2515" height="948" />
+    </state>
+    <state x="993" y="210" width="618" height="580" key="find.popup/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588609671358" />
     <state x="965" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1588329374368">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
