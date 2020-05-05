@@ -23,7 +23,8 @@ Route::middleware('auth:api')->group(function() {
         'users/{user}/posts' => 'UserPostController',
         '/friend-request' => 'FriendRequestController',
         '/friend-request-response' => 'FriendRequestResponseController',
-        '/posts/{post}/like' => 'PostLikesController'
+        '/posts/{post}/like' => 'PostLikesController',
+        '/posts/{post}/comment' => 'PostCommentController'
 
     ]);
 });
