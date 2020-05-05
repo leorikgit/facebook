@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/CommentCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_05_05_155639_create_comments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/PostCommentsTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/PostCommentsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/PostCommentsTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +201,7 @@
       <workItem from="1588262750258" duration="7282000" />
       <workItem from="1588320435553" duration="40732000" />
       <workItem from="1588592324740" duration="15514000" />
-      <workItem from="1588678853390" duration="4566000" />
+      <workItem from="1588678853390" duration="7991000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -411,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588610330971</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="user can comment post">
+      <created>1588696166092</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1588696166092</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +427,6 @@
       <path value="$PROJECT_DIR$/laradock" />
       <path value="$PROJECT_DIR$/workspace" />
     </ignored-roots>
-    <MESSAGE value="testing posts (third step) resource collection" />
     <MESSAGE value="init commit" />
     <MESSAGE value="front stuff for app" />
     <MESSAGE value="user profile" />
@@ -450,7 +451,8 @@
     <MESSAGE value="transition + lodash debounce for input postMessage event" />
     <MESSAGE value="user can retrive posts with likes" />
     <MESSAGE value="user can likes posts frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="user can likes posts frontend" />
+    <MESSAGE value="user can comment post" />
+    <option name="LAST_COMMIT_MESSAGE" value="user can comment post" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -475,11 +477,11 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588679210169" />
-    <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588610330532">
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588696165763">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588610330532" />
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588092109548" />
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588696165763" />
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588506503753" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />
@@ -509,6 +511,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="145" y="125" width="2315" height="750" key="com.intellij.history.integration.ui.views.FileHistoryDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588271949868" />
+    <state x="1073" y="415" width="448" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588696143312">
+      <screen x="45" y="27" width="2515" height="948" />
+    </state>
+    <state x="1073" y="415" width="448" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588696143312" />
     <state x="993" y="210" width="618" height="580" key="find.popup" timestamp="1588609671358">
       <screen x="45" y="27" width="2515" height="948" />
     </state>

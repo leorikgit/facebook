@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use \App\Http\Resources\User as userResources;
+use App\Http\Resources\CommentCollection as commentsCollection;
 class Post extends JsonResource
 {
     /**
@@ -21,6 +22,7 @@ class Post extends JsonResource
                 'attributes' => [
                     'likes'=> new LikeCollection($this->likes),
                     'posted_by'=> new userResources($this->user),
+                    'comments' => new commentsCollection($this->comments),
                     'body' => $this->body,
                     'posted_at' => $this->created_at->diffForHumans(),
                     'image' => $this->image,
