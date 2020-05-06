@@ -41,7 +41,10 @@
     <div v-if="comments" class="p-4 border-t border-gray-400 py-2">
         <div class="flex">
             <input v-model="commentBody" type="text" name="commentMessage" placeholder="message" class="w-full h-8 bg-gray-200 rounded-lg focus:outline-none pl-4 text-sm">
-            <button v-if="commentBody" class="ml-2 rounded-full px-3 py-1 bg-gray-200">Comment</button>
+            <button class="ml-2 rounded-full px-3 py-1 bg-gray-200"
+                    v-if="commentBody" @click="$store.dispatch('postComment', {body:commentBody, postId:post.data.post_id, arrayId:$vnode.key}); commentBody = ''">
+                Comment
+            </button>
         </div>
         <div class="flex items-center my-4" v-for="comment in post.data.attributes.comments.data">
             <div class="w-8">
@@ -51,7 +54,6 @@
                 <div class="bg-gray-200 p-2 rounded-lg text-sm">
                     <a :href="comment.data.attributes.commented_by.data.user_id" class="text-blue-600 text-bold">{{comment.data.attributes.commented_by.data.attributes.name}}</a>
                     <p class="inline">{{comment.data.attributes.body}}</p>
-
                 </div>
                 <div class="text-xs text-gray-600 pl-2">
                     4 day ago

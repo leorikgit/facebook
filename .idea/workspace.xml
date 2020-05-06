@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/116b8eec-cdd7-400a-9885-558a6fb97b16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/116b8eec-cdd7-400a-9885-558a6fb97b16.xml" afterDir="false" />
+    <list default="true" id="5b3998c6-7cb3-4630-b438-73d85eef778a" name="Default Changelist" comment="frontend make new comment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Post.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +201,8 @@
       <workItem from="1588262750258" duration="7282000" />
       <workItem from="1588320435553" duration="40732000" />
       <workItem from="1588592324740" duration="15514000" />
-      <workItem from="1588678853390" duration="16406000" />
+      <workItem from="1588678853390" duration="17602000" />
+      <workItem from="1588763735693" duration="837000" />
     </task>
     <task id="LOCAL-00001" summary="testing posts (first step)">
       <created>1587387409532</created>
@@ -420,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588701668674</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="frontend comments in newsfeed">
+      <created>1588761629369</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1588761629369</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +442,6 @@
       <path value="$PROJECT_DIR$/laradock" />
       <path value="$PROJECT_DIR$/workspace" />
     </ignored-roots>
-    <MESSAGE value="front stuff for app" />
     <MESSAGE value="user profile" />
     <MESSAGE value="user profile&#10;view all user posts" />
     <MESSAGE value="user profile&#10;view all user posts&#10;fix" />
@@ -459,7 +466,8 @@
     <MESSAGE value="user can likes posts frontend" />
     <MESSAGE value="user can comment post" />
     <MESSAGE value="comments need body&#10;posts are returned with comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments need body&#10;posts are returned with comments" />
+    <MESSAGE value="frontend comments in newsfeed" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend comments in newsfeed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587888837580">
@@ -484,11 +492,11 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588679210169" />
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588701668525">
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2" timestamp="1588764487443">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1588610330532" />
-    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588701668525" />
+    <state x="841" y="47" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.2560.975@45.27.2515.948" timestamp="1588764487443" />
     <state x="947" y="27" width="912" height="905" key="CommitChangelistDialog2/45.27.2515.948/2560.0.640.438@45.27.2515.948" timestamp="1588506503753" />
     <state x="286" y="105" width="2012" height="788" key="DiffContextDialog" timestamp="1587387391628">
       <screen x="45" y="27" width="2515" height="948" />

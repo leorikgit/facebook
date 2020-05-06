@@ -2149,6 +2149,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: ['post'],
@@ -39149,9 +39151,19 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "ml-2 rounded-full px-3 py-1 bg-gray-200"
+                        staticClass: "ml-2 rounded-full px-3 py-1 bg-gray-200",
+                        on: {
+                          click: function($event) {
+                            _vm.$store.dispatch("postComment", {
+                              body: _vm.commentBody,
+                              postId: _vm.post.data.post_id,
+                              arrayId: _vm.$vnode.key
+                            })
+                            _vm.commentBody = ""
+                          }
+                        }
                       },
-                      [_vm._v("Comment")]
+                      [_vm._v("\n                Comment\n            ")]
                     )
                   : _vm._e()
               ]),
@@ -56243,6 +56255,18 @@ var actions = {
         postKey: data.postKey
       });
     })["catch"](function (err) {});
+  },
+  postComment: function postComment(_ref4, data) {
+    var commit = _ref4.commit,
+        state = _ref4.state;
+    axios.post('/api/posts/' + data.postId + '/comment', {
+      body: data.body
+    }).then(function (res) {
+      commit('pushComments', {
+        comments: res.data,
+        postKey: data.arrayId
+      });
+    })["catch"](function (error) {});
   }
 };
 var mutations = {
@@ -56260,6 +56284,9 @@ var mutations = {
   },
   pushLikes: function pushLikes(state, data) {
     state.newsPosts.data[data.postKey].data.attributes.likes = data.likes;
+  },
+  pushComments: function pushComments(state, data) {
+    state.newsPosts.data[data.postKey].data.attributes.comments = data.comments;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
