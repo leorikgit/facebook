@@ -22,7 +22,7 @@
          </div>
         <div v-if="status.postStatus === 'loading'">Loading posts...</div>
         <div class="mt-4 text-gray-700" v-else-if="posts.length < 1">No posts found. Get started...</div>
-        <post v-else v-for="post in posts.data" :post="post" :key="post.data.post_id"></post>
+        <post v-else v-for="(post, postKey) in posts.data" :post="post" :key="postKey"></post>
 
 
 
@@ -53,7 +53,7 @@
                 friendButton: 'friendButton',
                 status : 'status',
                 authUser: 'authUser',
-                posts: 'post',
+                posts: 'Posts',
             })
         }
 

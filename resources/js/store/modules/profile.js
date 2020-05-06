@@ -3,15 +3,11 @@ import User from "./user";
 const state = {
     user: null,
     userStatus: null,
-    post: null,
-    postStatus: null
+
 }
 const getters = {
     user: state => {
         return state.user;
-    },
-    post: state => {
-        return state.post;
     },
     friendButton: (state, getters, rootState) => {
 
@@ -44,16 +40,6 @@ const actions = {
         })
     },
 
-    fetchPost({commit, dispatch}, userId){
-        commit('setPostsStatus', 'loading');
-        axios.get('/api/users/' +  userId + '/posts')
-            .then(res=>{
-                commit('setPostsStatus', 'success');
-                commit('setPosts', res.data);
-            }).catch(error => {
-            commit('setPostsStatus', 'Error');
-        })
-    },
     sendFriendRequest({commit, getters}, friendId){
        if(getters.friendButton !== 'Add friend'){
            return;
@@ -90,14 +76,8 @@ const mutations = {
     setUser(state, user){
         state.user = user;
     },
-    setPosts(state, posts){
-        state.post = posts;
-    },
     setUserStatus(state, status){
         state.userStatus = status;
-    },
-    setPostsStatus(state, status){
-        state.postStatus = status;
     },
     setUserFriendship(state, friendship){
         state.user.data.attributes.friendship = friendship;

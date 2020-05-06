@@ -27,7 +27,7 @@
         computed:{
             ...mapGetters({
                newsStatus: 'newsStatus',
-                posts: 'newsPosts'
+                posts: 'Posts'
             })
         }
 

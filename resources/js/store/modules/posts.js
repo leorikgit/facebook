@@ -1,14 +1,14 @@
 const state = {
-    newsPosts: null,
-    newsPostsStatus: null,
+    Posts: null,
+    PostsStatus: null,
     postMessage: ''
 }
 const getters = {
-    newsPosts: state => {
-        return state.newsPosts;
+    Posts: state => {
+        return state.Posts;
     },
     newsStatus: state => {
-        return {newsPostsStatus: state.newsPostsStatus}
+        return {PostsStatus: state.PostsStatus}
     },
     postMessage: state =>{
         return state.postMessage;
@@ -17,27 +17,37 @@ const getters = {
 }
 const actions= {
     fetchNewsPosts({commit, state}){
-        commit('setNewsPostsStatus', 'loading');
+        commit('setPostsStatus', 'loading');
         axios.get('/api/posts').
         then(res=>{
 
-            commit('setNewsPosts', res.data);
-            commit('setNewsPostsStatus', 'success');
+            commit('setPosts', res.data);
+            commit('setPostsStatus', 'success');
         }).catch(err=>{
-            commit('setNewsPostsStatus', 'error');
+            commit('setPostsStatus', 'error');
+        })
+    },
+    fetchPost({commit, dispatch}, userId){
+        commit('setPostsStatus', 'loading');
+        axios.get('/api/users/' +  userId + '/posts')
+            .then(res=>{
+                commit('setPostsStatus', 'success');
+                commit('setPosts', res.data);
+            }).catch(error => {
+            commit('setPostsStatus', 'Error');
         })
     },
     postMessage({commit, state}){
-        commit('setNewsPostsStatus', 'loading');
+        commit('setPostsStatus', 'loading');
         axios.post('/api/posts', {body:state.postMessage}).
         then(res=>{
 
             commit('pushNewPost', res.data);
 
             commit('setPostMessage', '');
-            commit('setNewsPostsStatus', 'success');
+            commit('setPostsStatus', 'success');
         }).catch(err=>{
-            commit('setNewsPostsStatus', 'error');
+            commit('setPostsStatus', 'error');
         })
     },
     likePost({commit, state}, data){
@@ -58,24 +68,24 @@ const actions= {
     }
 }
 const mutations = {
-    setNewsPostsStatus(state, status){
-        state.newsPostsStatus = status;
+    setPostsStatus(state, status){
+        state.PostsStatus = status;
     },
-    setNewsPosts(state, posts){
-        state.newsPosts = posts;
+    setPosts(state, posts){
+        state.Posts = posts;
     },
     setPostMessage(state, message){
         state.postMessage = message;
     },
     pushNewPost(state, newPost){
-        state.newsPosts.data.unshift(newPost);
+        state.Posts.data.unshift(newPost);
     },
     pushLikes(state, data){
 
-        state.newsPosts.data[data.postKey].data.attributes.likes = data.likes
+        state.Posts.data[data.postKey].data.attributes.likes = data.likes
     },
     pushComments(state, data){
-        state.newsPosts.data[data.postKey].data.attributes.comments = data.comments
+        state.Posts.data[data.postKey].data.attributes.comments = data.comments
     }
 }
 export default{
