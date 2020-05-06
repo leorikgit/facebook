@@ -2127,9 +2127,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
-  props: ['post']
+  props: ['post'],
+  data: function data() {
+    return {
+      comments: false,
+      commentBody: ''
+    };
+  }
 });
 
 /***/ }),
@@ -38993,7 +39021,14 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _c("div", [
+            _c("p", [
+              _vm._v(
+                _vm._s(_vm.post.data.attributes.comments.comment_count) +
+                  " comments"
+              )
+            ])
+          ])
         ]
       ),
       _vm._v(" "),
@@ -39045,7 +39080,12 @@ var render = function() {
           "button",
           {
             staticClass:
-              "flex justify-center w-full rounded-lg py-4 text-sm text-gray-700"
+              "flex justify-center w-full rounded-lg py-4 text-sm text-gray-700 focus:outline-none",
+            on: {
+              click: function($event) {
+                _vm.comments = !_vm.comments
+              }
+            }
           },
           [
             _c(
@@ -39070,7 +39110,99 @@ var render = function() {
             _c("p", { staticClass: "ml-2" }, [_vm._v("Comment")])
           ]
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _vm.comments
+        ? _c(
+            "div",
+            { staticClass: "p-4 border-t border-gray-400 py-2" },
+            [
+              _c("div", { staticClass: "flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.commentBody,
+                      expression: "commentBody"
+                    }
+                  ],
+                  staticClass:
+                    "w-full h-8 bg-gray-200 rounded-lg focus:outline-none pl-4 text-sm",
+                  attrs: {
+                    type: "text",
+                    name: "commentMessage",
+                    placeholder: "message"
+                  },
+                  domProps: { value: _vm.commentBody },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.commentBody = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.commentBody
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "ml-2 rounded-full px-3 py-1 bg-gray-200"
+                      },
+                      [_vm._v("Comment")]
+                    )
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.post.data.attributes.comments.data, function(comment) {
+                return _c("div", { staticClass: "flex items-center my-4" }, [
+                  _vm._m(1, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ml-4 flex-1" }, [
+                    _c(
+                      "div",
+                      { staticClass: "bg-gray-200 p-2 rounded-lg text-sm" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-blue-600 text-bold",
+                            attrs: {
+                              href:
+                                comment.data.attributes.commented_by.data
+                                  .user_id
+                            }
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                comment.data.attributes.commented_by.data
+                                  .attributes.name
+                              )
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "inline" }, [
+                          _vm._v(_vm._s(comment.data.attributes.body))
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-xs text-gray-600 pl-2" }, [
+                      _vm._v(
+                        "\n                    4 day ago\n                "
+                      )
+                    ])
+                  ])
+                ])
+              })
+            ],
+            2
+          )
+        : _vm._e()
     ]
   )
 }
@@ -39093,7 +39225,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("123 comments")])])
+    return _c("div", { staticClass: "w-8" }, [
+      _c("img", {
+        staticClass: "h-8 w-9 object-cover",
+        attrs: {
+          src:
+            "https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png"
+        }
+      })
+    ])
   }
 ]
 render._withStripped = true
