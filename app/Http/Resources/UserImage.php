@@ -17,7 +17,7 @@ class UserImage extends JsonResource
         return [
             'data'=>[
                 'type' => 'user_images',
-                'user_images_id' => 1,
+                'user_image_id' => $this->id,
                 'attributes' => [
                     'path' => url($this->path),
                     'location' => $this->location,

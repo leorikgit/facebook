@@ -60,4 +60,55 @@ class UserImagesTest extends TestCase
         ]);
 
     }
+    /** @test */
+    public function image_can_be_returned_with_user(){
+        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+
+        $file = UploadedFile::fake()->image('test-image.jpg');
+
+        $this->post('/api/user-images',[
+            'image' => $file,
+            'width' => 300,
+            'height' => 850,
+            'location' => 'cover'
+        ])->assertStatus(201);
+        $this->post('/api/user-images',[
+            'image' => $file,
+            'width' => 300,
+            'height' => 850,
+            'location' => 'profile'
+        ])->assertStatus(201);
+
+        Storage::disk('public')->assertExists('user-images/'.$file->hashName());
+
+
+        $response = $this->get('/api/users/'. $user->id);
+        $response->assertJson([
+            'data' => [
+                'type' => 'users',
+                'user_id' => $user->id,
+                'attributes' => [
+                    'cover_image' => [
+                        'data' => [
+                            'type' => 'user_images',
+                            'user_image_id' => 1,
+                            'attributes' => []
+                        ]
+
+                    ],
+                    'profile_image' => [
+                        'data' => [
+                            'type' => 'user_images',
+                            'user_image_id' => 2,
+                            'attributes' => []
+                        ]
+
+                    ],
+
+                ]
+            ],
+
+        ]);
+    }
 }
