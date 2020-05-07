@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center">
            <div class="">
                <div class="w-8">
-                   <img src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" class="h-8 w-9 object-cover">
+                   <img :src="authUser.data.attributes.profile_image.data.attributes.path" class="h-8 w-9 object-cover rounded-full">
                </div>
            </div>
            <div class="flex-1 flex px-4">
@@ -28,10 +28,14 @@
 
 <script>
     import _ from 'lodash';
+    import { mapGetters } from 'vuex';
     export default {
 
         name: "NewPost",
         computed: {
+        ...mapGetters({
+            authUser: 'authUser'
+        }),
             postMessage:{
                 get(){
                     return this.$store.getters.postMessage;

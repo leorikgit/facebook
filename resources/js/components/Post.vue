@@ -3,7 +3,7 @@
     <div class="flex flex-col p-4">
         <div class="flex items-center">
             <div class="w-8">
-                <img src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" class="h-8 w-9 object-cover">
+                <img :src="post.data.attributes.posted_by.data.attributes.profile_image.data.attributes.path" class="h-8 w-9 object-cover">
             </div>
             <div class="ml-2">
                 <div class="text-sm font-bold">{{post.data.attributes.posted_by.data.attributes.name}}</div>
@@ -48,7 +48,7 @@
         </div>
         <div class="flex items-center my-4" v-for="comment in post.data.attributes.comments.data">
             <div class="w-8">
-                <img src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" class="h-8 w-9 object-cover">
+                <img :src="comment.data.attributes.commented_by.data.attributes.profile_image.data.attributes.path" class="h-8 w-9 object-cover">
             </div>
             <div class="ml-4 flex-1">
                 <div class="bg-gray-200 p-2 rounded-lg text-sm">
