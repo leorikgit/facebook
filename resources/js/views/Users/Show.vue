@@ -4,7 +4,7 @@
          <div class="relative">
              <div class="position-absolute">
                  <div class="w-100 h-64 overflow-y-hidden z-10">
-                     <img class="object-cover" src="https://image.shutterstock.com/z/stock-photo-colorful-hot-air-balloons-flying-over-mountain-at-dot-inthanon-in-chiang-mai-thailand-1033306540.jpg" alt="User bacground image">
+                     <UploadableImage image-height="1500" image-width="300" location="cover"></UploadableImage>
                  </div>
                  <div class="flex items-center absolute bottom-0 left-0 -mb-8 ml-12 z-20">
                      <div class="w-32">
@@ -18,7 +18,6 @@
                  <button class=" mr-1 py-1 px-3 bg-blue-500 rounded " v-if="friendButton && friendButton == 'Accept'" @click="$store.dispatch('acceptFriendRequest', $route.params.userId)">Accept</button>
                  <button class="py-1 px-3 bg-gray-400 rounded " v-if="friendButton && friendButton == 'Accept'" @click="$store.dispatch('ignoreFriendRequest', $route.params.userId)">Ignore</button>
              </div>
-
          </div>
         <div v-if="status.postStatus === 'loading'">Loading posts...</div>
         <div class="mt-4 text-gray-700" v-else-if="posts.length < 1">No posts found. Get started...</div>
@@ -31,6 +30,7 @@
 
 <script>
     import Post from "../../components/Post";
+    import UploadableImage from "../../components/UploadableImage";
     import {mapGetters} from 'vuex';
     export default {
         name: "Show",
@@ -45,7 +45,8 @@
             }
         },
         components:{
-            Post
+            Post,
+            UploadableImage
         },
         computed:{
             ...mapGetters({
