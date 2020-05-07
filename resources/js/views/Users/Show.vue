@@ -4,11 +4,23 @@
          <div class="relative">
              <div class="position-absolute">
                  <div class="w-100 h-64 overflow-y-hidden z-10">
-                     <UploadableImage image-height="1500" image-width="300" location="cover"></UploadableImage>
+                     <UploadableImage image-height="1500"
+                                      image-width="300"
+                                      location="cover"
+                                      alt="User bacground image"
+                                      classes="object-cover w-full"
+                                      :userImage="user.data.attributes.cover_image"
+                     ></UploadableImage>
                  </div>
                  <div class="flex items-center absolute bottom-0 left-0 -mb-8 ml-12 z-20">
                      <div class="w-32">
-                         <img class="w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg" src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="user avatar">
+                         <UploadableImage image-height="1500"
+                                          image-width="300"
+                                          location="profile"
+                                          alt="User profile image"
+                                          classes="w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-lg"
+                                          :userImage="user.data.attributes.profile_image"
+                         ></UploadableImage>
                      </div>
                      <p class="ml-4 text-gray-100 text-2xl" v-if="status.user === 'success'">{{user.data.attributes.name}}</p>
                  </div>

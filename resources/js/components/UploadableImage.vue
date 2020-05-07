@@ -1,9 +1,10 @@
 <template>
     <div>
-        <img class="object-cover"
-             src="https://image.shutterstock.com/z/stock-photo-colorful-hot-air-balloons-flying-over-mountain-at-dot-inthanon-in-chiang-mai-thailand-1033306540.jpg"
-             alt="User bacground image"
-            ref="userImage">
+        <img class="object-cover w-full"
+             :src="imageObject.data.attributes.path"
+             :class="classes"
+             :alt="alt"
+             ref="userImage">
     </div>
 </template>
 
@@ -11,9 +12,10 @@
     import Dropzone from 'dropzone'
     export default {
         name: "UploadableImage",
-        datA:  () =>{
+        data:  () =>{
             return{
-                dropzone:null
+                dropzone:null,
+                uploadedFile: null
             }
         },
         mounted(){
@@ -34,15 +36,21 @@
                         'X-CSRF-TOKEN': document.head.querySelector('meta[name=csrf-token]').content
                     },
                     success: (e,res) => {
-                        alert('uploaded!');
+                        this.uploadedFile = res
                     }
                 }
+            },
+            imageObject(){
+                return this.uploadedFile || this.userImage;
             }
         },
         props:[
             'imageWidth',
             'imageHeight',
-            'location'
+            'location',
+            'userImage',
+            'classes',
+            'alt'
 
         ]
 
