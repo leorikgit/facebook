@@ -4,8 +4,8 @@
          <div class="relative">
              <div class="position-absolute">
                  <div class="w-100 h-64 overflow-y-hidden z-10">
-                     <UploadableImage image-height="1500"
-                                      image-width="300"
+                     <UploadableImage image-height="400"
+                                      image-width="1200"
                                       location="cover"
                                       alt="User bacground image"
                                       classes="object-cover w-full"

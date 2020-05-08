@@ -43316,8 +43316,8 @@ var render = function() {
                 [
                   _c("UploadableImage", {
                     attrs: {
-                      "image-height": "1500",
-                      "image-width": "300",
+                      "image-height": "400",
+                      "image-width": "1200",
                       location: "cover",
                       alt: "User bacground image",
                       classes: "object-cover w-full",
