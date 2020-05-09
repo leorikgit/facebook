@@ -1,3 +1,7 @@
 /public/*
 !/public/default
 !/public/default/*
+post-images/*
+user-images/*
+
+
