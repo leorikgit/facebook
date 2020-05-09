@@ -2122,6 +2122,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         },
         sending: function sending(file, xhr, formData) {
           formData.append('body', _this.$store.getters.postMessage);
+        },
+        maxFiles: 1,
+        maxfilesexceeded: function maxfilesexceeded(file) {
+          this.removeAllFiles();
+          this.addFile(file);
         }
       };
     },

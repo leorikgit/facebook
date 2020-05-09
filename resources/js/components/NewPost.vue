@@ -81,6 +81,11 @@
                     },
                     sending:(file, xhr, formData)=>{
                         formData.append('body', this.$store.getters.postMessage);
+                    },
+                    maxFiles: 1,
+                    maxfilesexceeded:  function(file) {
+                    this.removeAllFiles();
+                    this.addFile(file);
                     }
                 };
             },
