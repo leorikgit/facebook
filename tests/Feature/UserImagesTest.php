@@ -28,15 +28,15 @@ class UserImagesTest extends TestCase
 
         $response = $this->post('/api/user-images',[
            'image' => $file,
-           'width' => 300,
-           'height' => 850,
+           'width' => '300',
+           'height' => '850',
            'location' => 'cover'
         ])->assertStatus(201);
 
         Storage::disk('public')->assertExists('user-images/'.$file->hashName());
         $image = UserImage::first();
 
-        $this->assertEquals('user-images/'.$file->hashName(), $image->path);
+        $this->assertEquals('storage/user-images/'.$file->hashName(), $image->path);
         $this->assertEquals('300', $image->width);
         $this->assertEquals('850', $image->height);
         $this->assertEquals('cover', $image->location);
@@ -49,9 +49,10 @@ class UserImagesTest extends TestCase
                 'attributes' => [
                     'path' => url($image->path),
                     'location' => $image->location,
-                    'width' => $image->width,
-                    'height' => $image->height
-                ]
+                    'width' => '300',
+                    'height' => '850'
+                ],
+
             ],
             'links' => [
                 'self' => url('users/'. $user->id)
@@ -69,14 +70,14 @@ class UserImagesTest extends TestCase
 
         $this->post('/api/user-images',[
             'image' => $file,
-            'width' => 300,
-            'height' => 850,
+            'width' => '300',
+            'height' => '850',
             'location' => 'cover'
         ])->assertStatus(201);
         $this->post('/api/user-images',[
             'image' => $file,
-            'width' => 300,
-            'height' => 850,
+            'width' => '300',
+            'height' => '850',
             'location' => 'profile'
         ])->assertStatus(201);
 
@@ -92,7 +93,7 @@ class UserImagesTest extends TestCase
                     'cover_image' => [
                         'data' => [
                             'type' => 'user_images',
-                            'user_image_id' => 1,
+                            'user_images_id' => 1,
                             'attributes' => []
                         ]
 
@@ -100,7 +101,7 @@ class UserImagesTest extends TestCase
                     'profile_image' => [
                         'data' => [
                             'type' => 'user_images',
-                            'user_image_id' => 2,
+                            'user_images_id' => 2,
                             'attributes' => []
                         ]
 

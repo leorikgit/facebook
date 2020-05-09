@@ -25,7 +25,7 @@ class Post extends JsonResource
                     'comments' => new commentsCollection($this->comments),
                     'body' => $this->body,
                     'posted_at' => $this->created_at->diffForHumans(),
-                    'image' => $this->image,
+                    'image' => $this->image ? 'storage/'.$this->image : null,
                 ]
             ],
             'links' => [
